@@ -16,7 +16,7 @@ void DrawingCanvas::clearPoints(){
     m_intersectionCount = 0;
     m_isScannerActive = false;
     // Trigger a repaint to clear the canvas
-    update();A
+    update();
 }
 
 void DrawingCanvas::paintLines(){
