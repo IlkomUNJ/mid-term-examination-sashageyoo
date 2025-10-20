@@ -9,11 +9,10 @@
 #include <iostream>
 #include <iomanip>
 #include <QPixmap>
-#include "CustomMatrix.h"
+#include "CustomMatrix.h" // Include the updated matrix header
+#include <array>
 
 using namespace std;
-using Array3x3 = std::array<std::array<bool, 3>, 3>;
-
 
 class DrawingCanvas : public QWidget
 {
@@ -28,7 +27,7 @@ public:
     // Slot to clear all points from the canvas
     void clearPoints();
     void paintLines();
-    void segmentDetection();
+    void segmentDetection(); // Toggles and runs detection
 
 protected:
     // Overridden method to handle painting on the widget
@@ -42,5 +41,8 @@ private:
     QVector<QPoint> m_points;
 
     bool isPaintLinesClicked = false;
+    bool m_isScannerActive = false; // New state for scanner toggle
+    int m_intersectionCount = 0; // Intersection counter
+    QVector<QPoint> m_intersectionPoints; // Stores coordinates of detected intersection centers
 };
 #endif // DRAWINGCANVAS_H
