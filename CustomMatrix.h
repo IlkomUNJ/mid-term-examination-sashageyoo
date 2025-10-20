@@ -7,27 +7,25 @@ using namespace std;
 
 class CustomMatrix{
 public:
-    bool mat[3][3]={0};
+    static const int SIZE = 5; // Updated to 5x5 window size
+    bool mat[SIZE][SIZE]={0};
+
     CustomMatrix(){
 
     }
 
     //alternate way to instantiate the class
-    CustomMatrix(bool m[3][3]){
-        const int m_size = sizeof(m) / sizeof(m[0]);
-        for (int i=0;i< m_size;i++) {
-            for(int j=0; j < sizeof(m[0]);j++){
-                //cout << i << " " << j << endl;
+    CustomMatrix(bool m[SIZE][SIZE]){
+        for (int i=0; i < SIZE; i++) {
+            for(int j=0; j < SIZE; j++){
                 mat[i][j] = m[i][j];
             }
         }
     }
 
-    void fillMatrix(bool m[3][3]){
-        const int m_size = sizeof(m) / sizeof(m[0]);
-        for (int i=0;i< m_size;i++) {
-            for(int j=0; j < sizeof(m[0]);j++){
-                //cout << i << " " << j << endl;
+    void fillMatrix(bool m[SIZE][SIZE]){
+        for (int i=0; i < SIZE; i++) {
+            for(int j=0; j < SIZE; j++){
                 mat[i][j] = m[i][j];
             }
         }
